@@ -1,13 +1,14 @@
 // pages/index.js
+import { GetStaticProps } from "next";
 import Link from "next/link";
-import { client } from "../libs/client";
-import type { WorkProps } from '../types/works';
+import { client } from "../../libs/client";
+import type { WorkProps } from '../../types/works';
 
 type WorksProps = {
   works: WorkProps[];
 }
 
-export default function Home({ works }: WorksProps) {
+export default function Works({ works } : WorksProps) {
   return (
     <div>
       <ul>
@@ -24,7 +25,7 @@ export default function Home({ works }: WorksProps) {
 }
 
 // データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps = async () => {
+export const getStaticProps:GetStaticProps = async () => {
   const data = await client.get({ endpoint: "works" });
 
   return {
