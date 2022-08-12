@@ -4,5 +4,11 @@
   "extends": ["plugin:react/recommended"],
   "rules": {
     "prettier/prettier": "error"
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "env": {
+    "es6": true
   }
 }

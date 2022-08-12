@@ -1,10 +1,10 @@
 // pages/index.js
-import Link from "next/link";
+// import Link from "next/link";
 import { client } from "../libs/client";
 import type { WorkProps } from '../types/works';
-import type { ReactElement } from 'react'
+// import type { ReactElement } from 'react'
 import { Layout } from '../layouts/Layout';
-import type { NextPageWithLayout } from './_app';
+// import type { NextPageWithLayout } from './_app';
 import styles from '../styles/Top.module.sass';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
