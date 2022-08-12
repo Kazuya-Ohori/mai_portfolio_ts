@@ -1,0 +1,46 @@
+.section
+  &__mv
+    &Figure
+      padding-top: 100%
+      background-repeat: no-repeat
+      background-position: center
+      background-size: contain
+      position: relative
+  &__detail
+    max-width: 680px
+    margin: 0 auto
+    padding: 50px 30px 100px
+    +pc
+      padding: 50px 0 100px
+    + .section__detail
+      padding-top: 0
+    &Title
+      font-size: 24px
+      line-height: 1.38
+      max-width: 426px
+      margin: 0 auto
+      +pc
+        font-size: 26px
+      + .section__detailText
+        margin-top: 40px
+    &Text
+      line-height: 1.65
+      max-width: 426px
+      margin: 0 auto
+      +pc
+        font-size: 14px
+        line-height: 1.7
+      + .section__detailText
+        margin-top: 50px
+    &List
+      max-width: 426px
+      margin: 50px auto 0
+    &Date
+      font-size: 13px
+      color: rgba(0, 0, 0, 0.6)
+      padding-top: 15px
+      display: block
+      +pc
+        font-size: 14px
+    &Footer
+      text-align: right

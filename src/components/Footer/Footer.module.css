@@ -1,0 +1,38 @@
+
+.footer {
+  padding: 100px 20px 300px;
+  position: relative;
+}
+
+@media only screen and (min-width: 769px) {
+  .footer {
+    padding: 100px 20px 200px;
+  }
+}
+
+.footer:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+  height: 1px;
+  margin: 0 auto;
+  background-color: #d8d8d8;
+  width: 75.84541%;
+}
+
+@media only screen and (min-width: 769px) {
+  .footer:before {
+    width: 680px;
+  }
+}
+
+.footer__copyrights {
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 500;
+}

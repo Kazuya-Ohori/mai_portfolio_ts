@@ -1,0 +1,29 @@
+.morelink
+  font-size: 26px
+  font-style: italic
+  color: #000
+  display: inline-block
+  +pc
+    font-size: 24px
+  &:after
+    content: ''
+    display: block
+    margin-top: 15px
+    width: 100%
+    height: 7px
+    background-image: url('/img/icon_morelink-arrow.svg')
+    background-size: contain
+    background-position: center right
+    background-repeat: no-repeat
+    animation: morelinkAnimation 2s linear 0s infinite normal
+    +pc
+      height: 11px
+      background-position: center
+
+@keyframes morelinkAnimation
+  0%
+    transform: translate3d(-5px,0,0)
+  50%
+    transform: translate3d(10px,0,0)
+  100%
+    transform: translate3d(-5px,0,0)

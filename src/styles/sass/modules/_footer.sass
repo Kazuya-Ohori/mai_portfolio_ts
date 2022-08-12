@@ -1,0 +1,23 @@
+.footer
+  padding: 100px 20px 300px
+  position: relative
+  +pc
+    padding: 100px 20px 200px
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    left: 50%
+    top: 0
+    transform: translate3d(-50%,0,0)
+    height: 1px
+    margin: 0 auto
+    background-color: #d8d8d8
+    width: 314/414 * 100%
+    +pc
+      width: 680px
+  &__copyrights
+    text-align: center
+    font-size: 13px
+    font-style: italic
+    font-weight: 500

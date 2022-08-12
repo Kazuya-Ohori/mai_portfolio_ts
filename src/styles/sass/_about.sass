@@ -1,0 +1,56 @@
+main.about
+  padding: 0 10px
+  +pc
+    padding: 0 20px
+
+.about
+  .article
+    padding-top: 20px
+    position: relative
+    +pc
+      padding-top: 30px
+  .section
+    &__title
+      font-size: 36px
+      font-weight: bold
+      text-align: center
+      position: static
+      color: #000
+      transform: translate3d(0,0,0)
+      margin: 0 auto
+      width: auto
+      margin-top: 60px
+      height: 30px
+      padding-top: 0
+      +pc
+        font-size: 46px
+      span
+        font-size: 24px
+        +pc
+          font-size: 26px
+      img
+        width: auto
+    &__cat
+      display: block
+      font-size: 24px
+      font-weight: 500
+      padding-top: 15px
+      +pc
+        font-size: 26px
+    &__content
+      padding: 55px 0 100px
+      // max-width: 1440px
+      margin: 0 auto
+      +pc
+        max-width: 375px
+    &__figure
+      text-align: center
+      position: relative
+      padding-top: 100%
+    &__img
+      width: 100%
+    &__detail
+      padding-left: 24px
+      padding-right: 24px
+      &:last-child
+        padding-bottom: 0

@@ -1,0 +1,22 @@
+// custom media query
+=mimq($size)
+  @media(min-width: $size)
+    @content
+
+=mamq($size)
+  @media(max-width: $size)
+      @content
+
+// sp縦
+=sp
+  @media only screen and (max-width: $sp)
+    @content
+
+// pc
+=pc
+  @media only screen and (min-width: $pc + 1)
+    @content
+
+=pcL
+  @media only screen and (min-width: $pcL + 1)
+    @content

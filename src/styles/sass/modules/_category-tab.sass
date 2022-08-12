@@ -1,0 +1,26 @@
+.category-tab
+  width: 100%
+  margin: 180px auto 35px
+  overflow: auto
+  -ms-overflow-style: none
+  scrollbar-width: none
+  &::-webkit-scrollbar
+    display: none
+  +pc
+    max-width: 1440px
+  &__list
+    width: 100%
+    display: flex
+    list-style: none
+    justify-content: flex-start
+    align-items: center
+    +pc
+      max-width: 1440px
+      justify-content: center
+  &__item
+    padding: 0 20px
+    +pc
+      padding: 0 40px
+  &__link
+    &.current
+      color: #f4b1c2

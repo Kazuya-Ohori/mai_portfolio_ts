@@ -1,0 +1,235 @@
+.fixedBody {
+  position: fixed;
+}
+
+.header__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  padding: 60px 20px 20px;
+}
+
+@media only screen and (min-width: 769px) {
+  .header__inner {
+    padding: 50px 20px 20px;
+  }
+}
+
+.header__nav {
+  font-size: 14px;
+}
+
+@media (max-width: 396px) {
+  .header__nav {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .header__nav {
+    font-size: 11px;
+  }
+}
+
+.header__navList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+.header__navItem:not(:last-child):after {
+  content: "/";
+  font-size: 14px;
+  color: #d8d8d8;
+  padding: 0 5px;
+}
+
+@media only screen and (max-width: 320px) {
+  .header__navItem:not(:last-child):after {
+    font-size: 12px;
+    padding: 0 4px;
+  }
+}
+
+.header__navItem a {
+  color: #000;
+}
+
+.header__menu {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  padding: 80px 50px 50px;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  z-index: 1000;
+}
+
+.header__menu.hasLoaded {
+  -webkit-transition: -webkit-transform .5s ease;
+  transition: -webkit-transform .5s ease;
+  transition: transform .5s ease;
+  transition: transform .5s ease, -webkit-transform .5s ease;
+}
+
+.header__menu.active {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.header__menuBox {
+  padding-bottom: 50px;
+}
+
+.header__menuHome {
+  position: relative;
+  display: inline-block;
+}
+
+.header__menuHome span {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+}
+
+.header__menuHome:before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url(/img/icon_home.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.header__menuTrigger {
+  width: 50px;
+  height: 24px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1001;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 769px) {
+  .header__menuTrigger {
+    top: 30px;
+  }
+}
+
+.header__menuTrigger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #000;
+  -webkit-transition: color .5s ease, -webkit-transform .5s ease;
+  transition: color .5s ease, -webkit-transform .5s ease;
+  transition: transform .5s ease, color .5s ease;
+  transition: transform .5s ease, color .5s ease, -webkit-transform .5s ease;
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
+
+.header__menuTrigger span:nth-of-type(2) {
+  top: 10px;
+}
+
+.header__menuTrigger span:nth-of-type(3) {
+  bottom: 0;
+  top: auto;
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+}
+
+.header__menuTrigger.active span {
+  background: #d8d8d8;
+  -webkit-transform: rotate(-25deg);
+  transform: rotate(-25deg);
+  top: 50%;
+}
+
+.header__menuTrigger.active span:nth-of-type(2) {
+  visibility: hidden;
+}
+
+.header__menuTrigger.active span:nth-of-type(3) {
+  -webkit-transform: rotate(25deg);
+  transform: rotate(25deg);
+}
+
+.header__menuTriggerClose {
+  position: relative;
+  left: inherit;
+  top: inherit;
+  display: inline-block;
+}
+
+.header__menuTriggerClose span {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0) rotate(15deg);
+  transform: translate3d(-50%, -50%, 0) rotate(15deg);
+}
+
+.header__menuTriggerClose span:nth-of-type(2) {
+  top: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0) rotate(-15deg);
+  transform: translate3d(-50%, -50%, 0) rotate(-15deg);
+}
+
+.header__menuTitle {
+  font-size: 36px;
+  padding-bottom: 20px;
+}
+
+.header__menuTitleLink {
+  color: #000;
+}
+
+.header__menuList {
+  font-size: 24px;
+}
+
+.header__menuItem {
+  padding-top: 20px;
+}
+
+.header__menuLink {
+  color: #000;
+  padding-left: 5px;
+}
+
+.header__menuFooter {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  height: 27px;
+  text-align: center;
+}
+
+.header__bcItem a {
+  color: rgba(0, 0, 0, .3);
+}
+
+.header__bcItem:not(:last-child):after {
+  content: "<";
+}
