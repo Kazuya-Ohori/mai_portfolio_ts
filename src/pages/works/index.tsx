@@ -14,7 +14,6 @@ type WorksProps = {
 
 export default function Works({ works } : WorksProps) {
   const getThumbnail = (images:any) => {
-    console.log(images);
     return images[0].image.url;
   }
   return (

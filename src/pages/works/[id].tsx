@@ -12,7 +12,6 @@ type workProps = {
 }
 
 export default function WorkId({ work }: workProps) {
-  console.log(work);
   return (
     <Layout>
       <main className={`${styles.main} ${styles.works} ${styles.worksDetail}`}>

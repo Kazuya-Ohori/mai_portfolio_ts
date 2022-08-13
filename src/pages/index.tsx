@@ -18,17 +18,11 @@ type WorksProps = {
 }
 
 export default function Home({ contents }: any) {
-  console.log(contents);
   const mainVisualStyle = (images:any) => {
     return {
       backgroundImage: `url(${images[0].image.url})`
     }
   };
-
-  // const getThumbnail = (images:any) => {
-  //   console.log(images);
-  //   return images[0].image.url;
-  // }
 
   return (
     <Layout>
