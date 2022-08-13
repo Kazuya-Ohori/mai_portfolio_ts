@@ -7,6 +7,9 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-}
+  images: {
+    domains: ["images.microcms-assets.io"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

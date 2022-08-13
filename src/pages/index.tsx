@@ -1,5 +1,5 @@
 // pages/index.js
-// import Link from "next/link";
+import Link from "next/link";
 import { client } from "../libs/client";
 import type { WorkProps } from '../types/works';
 // import type { ReactElement } from 'react'
@@ -9,16 +9,26 @@ import styles from '../styles/Top.module.sass';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn, faInstagram, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { formatDate, DateFormat } from '../libs/utils';
+
 
 
 type WorksProps = {
   works: WorkProps[];
 }
 
-export default function Home({ works }: WorksProps) {
-  const mainVisualStyle = {
-    backgroundImage: "url('/img/main_visual.jpg')"
+export default function Home({ contents }: any) {
+  console.log(contents);
+  const mainVisualStyle = (images:any) => {
+    return {
+      backgroundImage: `url(${images[0].image.url})`
+    }
   };
+
+  // const getThumbnail = (images:any) => {
+  //   console.log(images);
+  //   return images[0].image.url;
+  // }
 
   return (
     <Layout>
@@ -28,7 +38,7 @@ export default function Home({ works }: WorksProps) {
             <h1 className={styles.section__title}>
               <Image src={"/img/logo.svg"} alt="Mai Valdenaire Profile" layout="fill" objectFit="contain"/>
             </h1>
-            <div className={styles.section__mvFigure} style={mainVisualStyle}>
+            <div className={styles.section__mvFigure} style={mainVisualStyle(contents.main_visual.images)}>
               <span className={styles.badge}>
                 <div className={styles.badge__img}>
                   <Image  src={"/img/icon_latest.svg"} alt="Latest" layout="fill" objectFit="contain"/>
@@ -37,9 +47,14 @@ export default function Home({ works }: WorksProps) {
             </div>
             <div className={styles.section__detail}>
               <div className={styles.section__detailTitle}>
-                <h2>狐路上遊戯</h2><span className={styles.section__detailDate}>2020/02/10</span>
+                <h2>{contents.main_visual.title}</h2>
+                <span className={styles.section__detailDate}>{formatDate(contents.main_visual.created_date, DateFormat.YY_MM_DD)}</span>
               </div>
-              <div className={styles.section__detailFooter}><a className={styles.morelink} href="#">more</a></div>
+              <div className={styles.section__detailFooter}>
+                <Link href={`/works/${contents.main_visual.id}`}>
+                  <a className={styles.morelink}>more</a>
+                </Link>
+              </div>
             </div>
           </section>
           <section className={`${styles.about}`}>
@@ -48,19 +63,19 @@ export default function Home({ works }: WorksProps) {
             </h1>
             <div className={styles.section__content}>
               <div className={styles.section__figure}>
-                <Image className={styles.section__img} src={"/img/about.png"} alt="about" layout="fill" objectFit="contain"/>
+                <Image className={styles.section__img} src={contents.about_image.url} alt="about" layout="fill" objectFit="contain"/>
               </div>
               <div className={styles.section__detail}>
-                <div className={styles.section__detailText}>
-                  <p><strong>Mai Valdenaire</strong> was born and raised in Japan. After studying graphic design for four
-                    years, she decided to make her passion for digital graphic become her life.<br />She&#x27;s a Graphic User
-                    Interface Designer.She has been make App,Web service, based in Tokyo and Kyoto.</p>
-                </div>
-                <div className={styles.section__detailText}>
-                  <p>
-                    グラフィックユーザーインタフェースのデザイナー。幼少期よりデジタルグラフィックに親しみ、イラストレーションやフォト、グラフィックの制作を行う。自信を被写体として制作・撮影するコスプレのパフォーマンス活動をつづけ、さまざまな世界観に挑んでいる。<br />現在、京都と東京を拠点に日本文化と向き合い、デジタルの融合を模索し、App,webサービスなどの設計、制作などを行っている。
-                  </p>
-                </div>
+                <div className={styles.section__detailText}
+                   dangerouslySetInnerHTML={{
+                    __html: `${contents.description_en}`,
+                  }}
+                />
+                <div className={`${styles.section__detailText} ${styles.section__detailTextJa}`}
+                   dangerouslySetInnerHTML={{
+                    __html: `${contents.description_ja}`,
+                  }}
+                />
               </div>
               <div className={styles.section__detail}>
                 <div className={styles.section__detailTitle}>
@@ -99,11 +114,11 @@ export default function Home({ works }: WorksProps) {
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: "works" });
+  const data = await client.get({ endpoint: "top" });
 
   return {
     props: {
-      works: data.contents,
+      contents: data.contents[0],
     },
   };
 };

@@ -3,56 +3,66 @@ main.works
   +pc
     padding: 0 20px
 
-.works
-  .article
-    padding-top: 20px
-    position: relative
+
+.article
+  padding-top: 20px
+  position: relative
+  +pc
+    padding-top: 30px
+.section
+  &__title
+    font-size: 36px
+    font-weight: bold
+    text-align: center
     +pc
-      padding-top: 30px
-  .section
-    &__title
-      font-size: 36px
-      font-weight: bold
-      text-align: center
-      +pc
-        font-size: 46px
-      span
-        font-size: 24px
-        +pc
-          font-size: 26px
-    &__cat
-      display: block
+      font-size: 46px
+    span
       font-size: 24px
-      font-weight: 500
-      padding-top: 15px
       +pc
         font-size: 26px
-    &__content
-      padding: 55px 0 100px
-      max-width: 1440px
-      margin: 0 auto
-      +pc
-        max-width: 1000px
-  &-list
+  &__cat
+    display: block
+    font-size: 24px
+    font-weight: 500
+    padding-top: 15px
+    +pc
+      font-size: 26px
+  &__content
+    padding: 55px 0 100px
+    max-width: 1440px
+    margin: 0 auto
+    +pc
+      max-width: 1000px
+.works
+  &List
     list-style: none
-    // display: flex
-    // flex-wrap: wrap
+    display: flex
+    flex-wrap: wrap
     padding: 0
     +pc
       padding: 0 20px
-  &-item
+  &Item
     width: 100%
     position: relative
-    padding-top: 206 / 512 * 100%
+    padding-top: 71.83908%
     overflow: hidden
-    // +pc
-    //   padding: 0 25px 50px
+    +pc
+      margin: 0 calc(10/768 * 100%) calc(20/768 * 100%)
+      padding-top: 32.55208%
+      width: 48.69792%
+    &:nth-of-type(odd)
+      +pc
+        margin: 0 calc(10/768 * 100%) calc(20/768 * 100%) 0
+    &:nth-of-type(even)
+      +pc
+        margin: 0 0 calc(20/768 * 100%) calc(10/768 * 100%)
+
     &__thumb
       width: 100%
     &__figure
       position: absolute
       width: 100%
-      height: auto
+      height: 100%
       top: 50%
       left: 0
       transform: translate3d(0, -50%, 0)
@@ -83,10 +93,10 @@ main.works
       padding-top: 80px
       letter-spacing: 5px
     &:hover
-      .works-item__info
+      .worksItem__info
         transform: translate3d(0, 0, 0)
         transition: transform .5s ease
-  &-more
+  &More
     padding-top: 50px
     text-align: center
     &__text
@@ -95,7 +105,7 @@ main.works
       +pc
         font-size: 18px
 
-  &--detail
+  &Detail
     .section
       max-width: 1440px
       margin: 0 auto
@@ -112,14 +122,14 @@ main.works
         padding: 60px 30px 100px
         +pc
           padding: 100px 0 100px
-        &-date
+        &Date
           text-align: left
           padding-top: 32px
           letter-spacing: 5px
-        &-labels
+        &Labels
           display: flex
           font-size: 13px
-        &-footer
+        &Footer
           text-align: left
           max-width: 426px
           margin: 0 auto
@@ -138,7 +148,7 @@ main.works
                 display: block
                 width: 100%
                 height: 7px
-                background-image: url(../img/icon_morelink-arrow.svg)
+                background-image: url(/img/icon_morelink-arrow.svg)
                 background-size: contain
                 background-position: center right
                 background-repeat: no-repeat
@@ -151,10 +161,10 @@ main.works
                   margin-bottom: 2px
 
 
-  .labels
-    padding-top: 30px
-    padding-bottom: 16px
-    &__title
-      color: rgba(0, 0, 0, 0.6)
-    &__name
-      padding-left: 1em
+.labels
+  padding-top: 30px
+  padding-bottom: 16px
+  &__title
+    color: rgba(0, 0, 0, 0.6)
+  &__name
+    padding-left: 1em

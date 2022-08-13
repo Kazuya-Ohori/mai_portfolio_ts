@@ -1,4 +1,5 @@
-export type WorkImageProps = {
+
+export type WorkImageProp = {
   url: string;
   height: number;
   width: number;
@@ -6,7 +7,11 @@ export type WorkImageProps = {
 
 export type WorkImagesProps = {
   fieldId: string;
-  image: WorkImageProps[];
+  image: {
+    url: string;
+    height: number;
+    width: number;
+  };
 }
 
 export type WorkCategoryProps = {
