@@ -31,7 +31,7 @@ export type WorkProps = {
   revisedAt: string;
   title: string;
   images: WorkImagesProps[];
-  category: WorkCategoryProps[];
+  category: WorkCategoryProps;
   created_date: string;
   url: string;
   label: string;
