@@ -1,31 +1,35 @@
 // pages/index.js
 import { GetStaticProps } from "next";
-import { useRouter } from "next/router";
+import Image from "next/image";
 import Link from "next/link";
-import { client } from "../../libs/client";
-import type { WorkProps, WorkCategoryProps } from '../../types/works';
-import { Layout } from '../../layouts/Layout';
-import styles from '../../styles/Works.module.sass';
-import Image from 'next/image';
-import { formatDate, DateFormat } from '../../libs/utils';
-import { Tab } from '@src/components/ui';
+import { useRouter } from "next/router";
+import { Tab } from "@/components/ui";
+import { Layout } from "@/layouts/Layout";
+import { client } from "@/libs/client";
+import { formatDate, DateFormat } from "@/libs/utils";
+import styles from "@/styles/Works.module.sass";
+import type { WorkProps, WorkCategoryProps } from "@/types/works";
 
 type WorksProps = {
   works: WorkProps[];
   // categories: WorkCategoryProps;
-}
+};
 
-export default function Works({ works } : WorksProps) {
-  const getThumbnail = (images:any) => {
+export default function Works({ works }: WorksProps) {
+  const getThumbnail = (images: any) => {
     return images[0].image.url;
-  }
+  };
   const router = useRouter();
-	const category = router.query.category || "";
-  const categories = works.map(item => item["category"]).filter((e, index, self) => {
-    return self.findIndex((el) => el.id === e.id) === index;
-  });
+  const category = router.query.category || "";
+  const categories = works
+    .map((item) => item["category"])
+    .filter((e, index, self) => {
+      return self.findIndex((el) => el.id === e.id) === index;
+    });
 
-  const filteredWorks = category ? works.filter(item => item.category.id === category) : works;
+  const filteredWorks = category
+    ? works.filter((item) => item.category.id === category)
+    : works;
 
   return (
     <Layout>
@@ -42,14 +46,26 @@ export default function Works({ works } : WorksProps) {
                       <a>
                         <div className={styles.worksItem__figure}>
                           <div className={styles.worksItem__thumb}>
-                            <Image src={getThumbnail(work.images)} layout="fill" objectFit="cover"/>
+                            <Image
+                              src={getThumbnail(work.images)}
+                              layout='fill'
+                              objectFit='cover'
+                              alt='thumbnail'
+                            />
                           </div>
                         </div>
                         <div className={styles.worksItem__info}>
                           <div className={styles.worksItem__desc}>
                             <p>{work.title}</p>
                           </div>
-                          <div className={styles.worksItem__date}><span>{formatDate(work.created_date, DateFormat.YY_MM_DD)}</span></div>
+                          <div className={styles.worksItem__date}>
+                            <span>
+                              {formatDate(
+                                work.created_date,
+                                DateFormat.YY_MM_DD
+                              )}
+                            </span>
+                          </div>
                         </div>
                       </a>
                     </Link>
@@ -65,14 +81,14 @@ export default function Works({ works } : WorksProps) {
 }
 
 // データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps:GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   // category[equals]cosplay
   // queries: { filters: 'category[equals]cosplay' }
   const data = await client.get({ endpoint: "works" });
 
   return {
     props: {
-      works: data.contents
+      works: data.contents,
     },
   };
 };

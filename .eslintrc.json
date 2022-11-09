@@ -1,9 +1,21 @@
 {
   // "extends": "next/core-web-vitals",
   "plugins": ["prettier"],
-  "extends": ["plugin:react/recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:import/recommended",
+    "plugin:import/warnings",
+    "prettier"
+  ],
   "rules": {
-    "prettier/prettier": "error"
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ]
   },
   "parserOptions": {
     "ecmaVersion": "latest"

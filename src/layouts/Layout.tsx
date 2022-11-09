@@ -1,9 +1,10 @@
-import { ReactElement } from 'react';
-import { Footer, Header, BackTop } from '@src/components/ui';
+import { ReactElement } from "react";
+import { Footer, Header, BackTop } from "@/components/ui";
+import { CategoriesProvider } from "@/context/categoriesContext";
 
 type LayoutProps = Required<{
-  readonly children: ReactElement
-}>
+  readonly children: ReactElement;
+}>;
 
 export const Layout = ({ children }: LayoutProps) => (
   <>
@@ -12,4 +13,4 @@ export const Layout = ({ children }: LayoutProps) => (
     <BackTop />
     <Footer />
   </>
-)
+);
